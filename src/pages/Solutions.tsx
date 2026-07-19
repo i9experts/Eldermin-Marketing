@@ -1,38 +1,35 @@
-import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const solutions = [
-  { id: 'admissions', emoji: '🎓', title: 'Admissions Management', desc: 'End-to-end enrollment from application to admission.', features: ['Custom application forms', 'Document upload & verification', 'Entrance exam scheduling', 'Automated offer letters', 'Real-time application tracking', 'Enrollment confirmation'] },
-  { id: 'academics', emoji: '📚', title: 'Academic Management', desc: 'Comprehensive tools for timetabling, attendance, grading, and result computation.', features: ['Conflict-free timetabling', 'Biometric attendance', 'Digital gradebook', 'Automated report cards', 'Lesson planning tools', 'E-learning integration'] },
-  { id: 'finance', emoji: '💰', title: 'Finance & Fees', desc: 'Complete financial management with online payment, automated invoicing, and real-time reporting.', features: ['Online fee payment', 'Automated reminders', 'Budget tracking', 'Expense management', 'Financial dashboards', 'Audit trails'] },
-  { id: 'hr', emoji: '👥', title: 'HR & Payroll', desc: 'Full human resource management for your entire staff.', features: ['Staff database', 'Automated payroll', 'Leave management', 'Performance reviews', 'Recruitment pipeline', 'Staff portal'] },
-  { id: 'comms', emoji: '💬', title: 'Communication Hub', desc: 'Keep parents, students, and staff connected with multi-channel messaging.', features: ['Bulk SMS & email', 'Parent mobile app', 'In-app messaging', 'Event management', 'Emergency alerts', 'Notice board'] },
+  { id: 'admissions', title: 'Admissions', desc: 'End-to-end enrollment from application to admission, sharing one record the whole way through.', features: ['Online application intake', 'Document upload & verification', 'Lead-to-applicant conversion', 'Enrollment & class assignment'] },
+  { id: 'academics', title: 'Academics', desc: 'Timetabling, attendance, grading, and syllabus tracking, all reading from the same academic structure.', features: ['Conflict-free timetabling', 'Digital gradebook', 'Syllabus coverage tracking', 'Curriculum intelligence'] },
+  { id: 'finance', title: 'Finance & fees', desc: 'Fee collection and reporting formatted the way Pakistani school admin offices actually use them.', features: ['Class & section fee reports', 'Automated reminders', 'Procurement & purchase workflow', 'Audit trails'] },
+  { id: 'hr', title: 'HR & payroll', desc: 'Staff records, payroll, and leave, in the same system as everything else — not a separate spreadsheet.', features: ['Staff database', 'Payroll computation', 'Leave management', 'Staff portal'] },
+  { id: 'comms', title: 'Behaviour & Tarbiyah', desc: 'Salah attendance, Hifz progress, and Islamic Studies grading, tracked on the same student profile as academics.', features: ['Salah attendance tracking', 'Quran memorisation progress', 'Tarbiyah report card', 'Behaviour records'] },
 ]
 
 export default function Solutions() {
   return (
     <div className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-navy-deep mb-4">Complete Solutions for Every School Need</h1>
-          <p className="text-gray-500 text-xl max-w-2xl mx-auto">Five integrated suites that cover every aspect of school administration</p>
+        <div className="max-w-2xl mb-16">
+          <span className="font-mono text-xs text-amber-dark uppercase tracking-widest">Solutions</span>
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-navy-deep mt-3 mb-4">Every part of running a school, in one place</h1>
+          <p className="text-slate text-xl">Five areas. One connected system underneath all of them.</p>
         </div>
-        <div className="space-y-20">
-          {solutions.map((s) => (
-            <motion.div key={s.id} id={s.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="space-y-16">
+          {solutions.map(s => (
+            <div key={s.id} id={s.id} className="grid md:grid-cols-2 gap-12 items-center border-t border-navy/10 pt-12">
               <div>
-                <div className="text-5xl mb-4">{s.emoji}</div>
-                <h2 className="text-2xl font-bold text-navy-deep mb-3">{s.title}</h2>
-                <p className="text-gray-600 text-lg mb-6">{s.desc}</p>
+                <h2 className="text-2xl font-display font-bold text-navy-deep mb-3">{s.title}</h2>
+                <p className="text-slate text-lg mb-6">{s.desc}</p>
                 <ul className="space-y-2 mb-6">
-                  {s.features.map(f => <li key={f} className="flex items-center gap-2 text-gray-700"><span className="text-amber font-bold">✓</span> {f}</li>)}
+                  {s.features.map(f => <li key={f} className="flex items-center gap-2.5 text-slate"><span className="w-1.5 h-1.5 rounded-full bg-amber shrink-0" /> {f}</li>)}
                 </ul>
-                <Link to="/signup" className="inline-block bg-navy hover:bg-navy-mid text-white font-semibold px-6 py-3 rounded-xl transition-colors">Get Started →</Link>
+                <Link to="/signup" className="inline-block bg-navy hover:bg-navy-mid text-white font-display font-semibold px-6 py-3 rounded-lg transition-colors">Get started</Link>
               </div>
-              <div className="bg-gradient-to-br from-blue-pale to-white rounded-2xl h-64 flex items-center justify-center border border-blue/20">
-                <span className="text-9xl opacity-20">{s.emoji}</span>
-              </div>
-            </motion.div>
+              <div className="bg-mist rounded-xl h-56 border border-navy/10" />
+            </div>
           ))}
         </div>
       </div>

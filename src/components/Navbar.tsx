@@ -37,7 +37,7 @@ export default function Navbar() {
               {dropdown && (
                 <div className="absolute top-full left-0 mt-1 bg-white shadow-xl rounded-xl p-2 w-48 border border-gray-100">
                   {solutions.map(s => (
-                    <Link key={s.label} to={s.href} className="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-pale hover:text-navy rounded-lg transition-colors">{s.label}</Link>
+                    <Link key={s.label} to={s.href} className="block px-3 py-2 text-sm text-gray-700 hover:bg-mist hover:text-navy rounded-lg transition-colors">{s.label}</Link>
                   ))}
                 </div>
               )}

@@ -4,14 +4,14 @@ export default function WizardStep3() {
   const d = data.step3
   return (
     <div>
-      <div className="text-3xl mb-2">📊</div>
-      <h2 className="text-xl font-bold text-navy-deep mb-1">School Size</h2>
+      <span className="font-mono text-xs text-amber-dark uppercase tracking-widest">Step 3</span>
+      <h2 className="text-xl font-display font-bold text-navy-deep mb-1 mt-1">School size</h2>
       <p className="text-gray-500 text-sm mb-6">Help us tailor your plan</p>
       <div className="space-y-4">
         {[
-          { key: 'studentCount', label: 'Number of Students', placeholder: 'e.g. 450' },
-          { key: 'staffCount', label: 'Number of Staff', placeholder: 'e.g. 60' },
-          { key: 'classCount', label: 'Number of Classes', placeholder: 'e.g. 18' },
+          { key: 'studentCount', label: 'Number of students', placeholder: 'e.g. 450' },
+          { key: 'staffCount', label: 'Number of staff', placeholder: 'e.g. 40' },
+          { key: 'classCount', label: 'Number of classes', placeholder: 'e.g. 16' },
         ].map(field => (
           <div key={field.key}>
             <label className="block text-sm font-semibold text-gray-700 mb-1">{field.label}</label>
@@ -19,16 +19,16 @@ export default function WizardStep3() {
           </div>
         ))}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-1">Grade Range</label>
+          <label className="block text-sm font-semibold text-gray-700 mb-1">Grade range</label>
           <select value={d.gradeRange} onChange={e => updateData('step3', { gradeRange: e.target.value })} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/30">
             <option value="">Select...</option>
-            {['Nursery 1 - Primary 6', 'JSS 1 - JSS 3', 'SSS 1 - SSS 3', 'Nursery - SSS 3 (K-12)', 'Pre-school only'].map(g => <option key={g} value={g}>{g}</option>)}
+            {['Nursery - Grade 5', 'Grade 6 - Grade 8', 'Grade 9 - Grade 10', 'Nursery - Grade 12 (K-12)', 'Pre-school only'].map(g => <option key={g} value={g}>{g}</option>)}
           </select>
         </div>
       </div>
       <div className="flex gap-3 mt-8">
         <button onClick={prevStep} className="flex-1 border border-gray-200 text-gray-600 font-semibold py-3 rounded-xl hover:bg-gray-50 transition-colors">← Back</button>
-        <button onClick={nextStep} className="flex-1 bg-amber hover:bg-amber-dark text-white font-bold py-3 rounded-xl transition-colors">Continue →</button>
+        <button onClick={nextStep} className="flex-1 bg-amber hover:bg-amber-dark text-navy-deep font-display font-semibold py-3 rounded-xl transition-colors">Continue →</button>
       </div>
     </div>
   )

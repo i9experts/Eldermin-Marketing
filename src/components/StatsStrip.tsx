@@ -1,25 +1,20 @@
-import { motion } from 'framer-motion'
-import { Building2, Users, LayoutGrid, Globe2 } from 'lucide-react'
-
 const stats = [
-  { icon: Building2, value: '200+', label: 'Institutions' },
-  { icon: Users, value: '80,000+', label: 'Students Managed' },
-  { icon: LayoutGrid, value: '17', label: 'ERP Modules' },
-  { icon: Globe2, value: '14', label: 'Countries' },
-  { icon: Users, value: '99.9%', label: 'Uptime SLA' },
+  { value: '8', label: 'Schools live' },
+  { value: '200+', label: 'Teachers using Eldermin daily' },
+  { value: '~3,000', label: 'Students managed' },
+  { value: '17', label: 'Modules, one platform' },
 ]
 
 export default function StatsStrip() {
   return (
-    <section className="bg-navy py-12 border-y border-navy-mid">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center">
-          {stats.map((s, i) => (
-            <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} className="flex flex-col items-center gap-1">
-              <s.icon size={20} className="text-amber mb-1" />
-              <div className="text-3xl font-extrabold text-white">{s.value}</div>
-              <div className="text-blue-pale/60 text-xs uppercase tracking-widest">{s.label}</div>
-            </motion.div>
+    <section className="bg-navy-deep border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+          {stats.map(s => (
+            <div key={s.label} className="px-4 text-center first:pl-0 last:pr-0">
+              <div className="font-mono text-3xl md:text-4xl font-semibold text-amber">{s.value}</div>
+              <div className="text-navy-pale/60 text-xs mt-1.5 leading-snug">{s.label}</div>
+            </div>
           ))}
         </div>
       </div>

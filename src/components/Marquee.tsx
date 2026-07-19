@@ -1,21 +1,20 @@
-const schools = [
-  'Al-Noor Islamic School', 'Greenfield Academy', 'Kings College Lagos', 'Hillcrest School',
-  'Atlantic Hall', 'Dar ul-Uloom', 'Corona Secondary', 'Deeper Life High School',
-  'Meadow Hall', 'Lekki British School', 'Madrasa Al-Irshad', 'Chrisland Schools',
-  'Lead British Int\'l', 'Caleb Schools', 'Premiere Academy', 'Faith Academy',
-  'Loyola Jesuit College', 'Al-Hikmah University', 'Islamiyya Model School', 'Darul Hadith',
+const modules = [
+  'Organization', 'Compliance & Governance', 'Documents & Workflow', 'Human Resource', 'Teacher Module',
+  'Financial Module', 'Procurement & Purchase', 'Campus Operations', 'Admission Life Cycle',
+  'Curriculum Intelligence', 'Syllabus Coverage', 'Timetable Intelligence', 'Library Management',
+  'Student Profile', 'Assessment', 'Behaviour & Tarbiyah', 'Data Intelligence',
 ]
 
 export default function Marquee() {
   return (
-    <section className="py-10 bg-white border-y border-gray-100 overflow-hidden">
-      <p className="text-center text-xs font-bold text-gray-400 uppercase tracking-widest mb-5">
-        Trusted by leading Islamic &amp; independent schools
+    <section className="py-9 bg-mist border-y border-navy/10 overflow-hidden">
+      <p className="text-center text-xs font-mono font-semibold text-slate-light uppercase tracking-widest mb-5">
+        Every one of these, in one platform
       </p>
-      <div className="flex gap-6 whitespace-nowrap" style={{ animation: 'marquee 35s linear infinite' }}>
-        {[...schools, ...schools].map((name, i) => (
-          <span key={i} className="inline-flex items-center gap-2 text-navy font-semibold text-sm px-4 py-2 bg-blue-pale rounded-full shrink-0 border border-blue/10">
-            🏫 {name}
+      <div className="flex gap-3 whitespace-nowrap" style={{ animation: 'marquee 38s linear infinite' }}>
+        {[...modules, ...modules].map((name, i) => (
+          <span key={i} className="inline-flex items-center text-navy font-medium text-sm px-4 py-1.5 bg-white rounded-md shrink-0 border border-navy/10">
+            {name}
           </span>
         ))}
       </div>

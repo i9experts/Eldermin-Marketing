@@ -16,7 +16,7 @@ export default function Signup() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-pale to-white flex items-center justify-center py-20 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-mist to-white flex items-center justify-center py-20 px-4">
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-extrabold text-navy-deep">Start Your Free Trial</h1>
@@ -24,9 +24,9 @@ export default function Signup() {
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           {[
-            { key: 'schoolName', label: 'School Name', type: 'text', placeholder: 'e.g. Greenfield Academy' },
-            { key: 'email', label: 'Email Address', type: 'email', placeholder: 'admin@school.edu.ng' },
-            { key: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+234 800 000 0000' },
+            { key: 'schoolName', label: 'School Name', type: 'text', placeholder: 'e.g. Al Huda International' },
+            { key: 'email', label: 'Email Address', type: 'email', placeholder: 'admin@yourschool.edu.pk' },
+            { key: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+92 300 0000000' },
             { key: 'password', label: 'Password', type: 'password', placeholder: '••••••••' },
             { key: 'confirmPassword', label: 'Confirm Password', type: 'password', placeholder: '••••••••' },
           ].map(field => (

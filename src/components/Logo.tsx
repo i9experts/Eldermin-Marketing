@@ -1,14 +1,41 @@
-export default function Logo({ className = '' }: { className?: string }) {
+interface LogoProps {
+  className?: string
+  mark?: boolean
+  dark?: boolean
+}
+
+/** The real Eldermin mark: a connected node-graph forming an "L", plus the elder•min wordmark. */
+export function LogoMark({ className = '' }: { className?: string }) {
   return (
-    <svg className={className} width="160" height="38" viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Logomark: two interlocking arcs forming a crescent + book motif */}
-      <circle cx="16" cy="19" r="15" fill="#1B4F8A"/>
-      <circle cx="16" cy="19" r="10" fill="#0C2547"/>
-      {/* Crescent */}
-      <path d="M16 8 C22 8 27 13 27 19 C27 25 22 30 16 30 C18 27 19 23 19 19 C19 15 18 11 16 8Z" fill="#F5A623"/>
-      {/* Dot */}
-      <circle cx="13" cy="19" r="2.5" fill="#FAC05A"/>
-      <text x="37" y="26" fontFamily="'Inter','Arial',sans-serif" fontWeight="800" fontSize="21" fill="#1B4F8A" letterSpacing="-0.5">eldermin</text>
+    <svg className={className} viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="10" y1="8" x2="34" y2="8" stroke="#BFD7EE" strokeWidth="3" strokeLinecap="round" />
+      <line x1="10" y1="8" x2="10" y2="36" stroke="#BFD7EE" strokeWidth="3" strokeLinecap="round" />
+      <line x1="10" y1="36" x2="34" y2="36" stroke="#BFD7EE" strokeWidth="3" strokeLinecap="round" />
+      <line x1="10" y1="22" x2="25" y2="22" stroke="#BFD7EE" strokeWidth="3" strokeLinecap="round" />
+      <line x1="27" y1="17" x2="34" y2="9" stroke="#154E86" strokeWidth="2" strokeLinecap="round" strokeDasharray="1.5 3.2" />
+      <line x1="27" y1="27" x2="34" y2="35" stroke="#154E86" strokeWidth="2" strokeLinecap="round" strokeDasharray="1.5 3.2" />
+      <circle cx="10" cy="8" r="5.5" fill="#071A2C" />
+      <circle cx="34" cy="8" r="4.5" fill="#0C447C" />
+      <circle cx="10" cy="22" r="4.5" fill="#0C447C" />
+      <circle cx="10" cy="36" r="5.5" fill="#071A2C" />
+      <circle cx="34" cy="36" r="4.5" fill="#0C447C" />
+      <circle cx="26" cy="22" r="6.5" fill="#EF9F27" />
     </svg>
+  )
+}
+
+export default function Logo({ className = '', mark = false, dark = false }: LogoProps) {
+  const elderColor = dark ? '#FFFFFF' : '#0C2E52'
+  const minColor = dark ? '#BFD7EE' : '#3E7CB1'
+  if (mark) return <LogoMark className={className} />
+  return (
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+      <LogoMark className="w-8 h-8 shrink-0" />
+      <span className="font-display font-bold text-[1.4rem] leading-none tracking-tight">
+        <span style={{ color: elderColor }}>elder</span>
+        <span style={{ color: '#EF9F27' }}>&middot;</span>
+        <span style={{ color: minColor }}>min</span>
+      </span>
+    </span>
   )
 }

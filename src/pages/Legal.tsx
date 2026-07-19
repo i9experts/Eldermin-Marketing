@@ -3,7 +3,7 @@ export default function Legal() {
     <div className="py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold text-navy-deep mb-4">Privacy Policy</h1>
-        <p className="text-gray-500 mb-10">Last updated: June 2025</p>
+        <p className="text-gray-500 mb-10">Last updated: July 2026</p>
         <div className="space-y-8">
           <section>
             <h2 className="text-xl font-bold text-navy-deep mb-3">1. Information We Collect</h2>
@@ -15,7 +15,7 @@ export default function Legal() {
           </section>
           <section>
             <h2 className="text-xl font-bold text-navy-deep mb-3">3. Data Security</h2>
-            <p className="text-gray-600 leading-relaxed">We implement industry-standard security measures including 256-bit encryption, SOC 2 compliant infrastructure, regular security audits, and strict access controls to protect your data.</p>
+            <p className="text-gray-600 leading-relaxed">We use encrypted connections (HTTPS/TLS) and role-based access controls to protect your data, hosted on AWS infrastructure in the Mumbai (ap-south-1) region.</p>
           </section>
           <section id="terms">
             <h2 className="text-2xl font-bold text-navy-deep mb-3 mt-12">Terms of Service</h2>
@@ -27,7 +27,7 @@ export default function Legal() {
             <p className="text-gray-600 leading-relaxed">Subscriptions are billed on a termly or annual basis. Cancellation requests must be submitted at least 30 days before the next billing date.</p>
           </section>
         </div>
-        <div className="mt-10 p-6 bg-blue-pale rounded-xl">
+        <div className="mt-10 p-6 bg-mist rounded-xl">
           <p className="text-sm text-gray-600">For privacy or legal inquiries, contact: <a href="mailto:legal@eldermin.com" className="text-navy font-semibold">legal@eldermin.com</a></p>
         </div>
       </div>
