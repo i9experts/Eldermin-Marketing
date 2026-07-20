@@ -5,7 +5,7 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body { @apply font-body text-slate antialiased; }
-  h1, h2, h3, h4 { @apply font-display; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
   :focus-visible { outline: 2px solid #EF9F27; outline-offset: 2px; }
 }
 

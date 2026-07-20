@@ -8,7 +8,6 @@ import { moduleGroups } from '../data/modules'
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [dropdown, setDropdown] = useState(false)
   const [mobileModulesOpen, setMobileModulesOpen] = useState(false)
   const location = useLocation()
 
@@ -25,11 +24,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link to="/"><Logo /></Link>
           <div className="hidden md:flex items-center gap-6">
-            <div className="relative" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
-              <button className="flex items-center gap-1 text-navy font-medium hover:text-amber transition-colors py-2">
-                Modules <ChevronDown size={16} className={`transition-transform ${dropdown ? 'rotate-180' : ''}`} />
+            <div className="relative group h-16 flex items-center">
+              <button className="flex items-center gap-1 text-navy font-medium group-hover:text-amber transition-colors">
+                Modules <ChevronDown size={16} className="transition-transform group-hover:rotate-180" />
               </button>
-              {dropdown && <MegaMenu />}
+              <div className="absolute left-1/2 -translate-x-1/2 top-full invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-150 pt-2">
+                <MegaMenu />
+              </div>
             </div>
             <Link to="/resources" className="text-navy font-medium hover:text-amber transition-colors">Resources</Link>
             <Link to="/about" className="text-navy font-medium hover:text-amber transition-colors">About</Link>
