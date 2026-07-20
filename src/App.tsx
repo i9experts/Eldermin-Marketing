@@ -6,6 +6,8 @@ import Solutions from './pages/Solutions'
 import SolutionDetail from './pages/SolutionDetail'
 import Resources from './pages/Resources'
 import About from './pages/About'
+import Contact from './pages/Contact'
+import Partners from './pages/Partners'
 import Legal from './pages/Legal'
 import Signup from './pages/Signup'
 import Wizard from './pages/Wizard'
@@ -23,6 +25,8 @@ export default function App() {
             <Route path="/solutions/:slug" element={<SolutionDetail />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/partners" element={<Partners />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/wizard" element={<Wizard />} />
