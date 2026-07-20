@@ -19,7 +19,10 @@ export const moduleGroups: ModuleGroup[] = [
   {
     slug: 'foundation', name: 'Foundation', color: '#0C447C',
     blurb: 'The structural layer every other module reads from — institution profile, campuses, academic calendar, governance, and document workflow.',
-    screenshots: [],
+    screenshots: [
+      { src: '/screenshots/foundation/executive-dashboard.png', caption: 'Executive Dashboard — organization and governance overview across institutions, campuses, and departments' },
+      { src: '/screenshots/foundation/documents-workflow.png', caption: 'Documents & Workflow dashboard — approvals, e-signatures, and audit trail in one view' },
+    ],
     modules: [
       { name: 'Organization', desc: 'Institution profile, campuses, academic years' },
       { name: 'Compliance & Governance', desc: 'Policies, board, committees, audit logs' },

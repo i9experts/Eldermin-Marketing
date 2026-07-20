@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, LayoutGrid } from 'lucide-react'
-import { moduleGroups } from '../data/modules'
+import { ArrowRight } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -27,7 +26,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* TODO: replace with a real dashboard screenshot once provided */}
         <div className="rounded-xl bg-[#0F2540] border border-white/10 shadow-2xl overflow-hidden">
           <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/10">
             <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
@@ -35,23 +33,7 @@ export default function Hero() {
             <span className="w-2.5 h-2.5 rounded-full bg-white/15" />
             <span className="ml-3 text-xs font-mono text-white/40">app.eldermin.com</span>
           </div>
-          <div className="p-6">
-            <div className="flex items-center gap-2 mb-5">
-              <LayoutGrid size={16} className="text-amber" />
-              <span className="text-white/90 text-sm font-semibold">Module overview</span>
-            </div>
-            <div className="grid grid-cols-2 gap-2.5">
-              {moduleGroups.map(g => (
-                <div key={g.slug} className="rounded-lg bg-white/[0.04] border border-white/10 px-3.5 py-3">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: g.color }} />
-                    <span className="text-white/85 text-xs font-semibold">{g.name}</span>
-                  </div>
-                  <span className="text-white/40 text-[0.7rem]">{g.modules.length} module{g.modules.length > 1 ? 's' : ''}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <img src="/screenshots/foundation/executive-dashboard.png" alt="Eldermin Executive Dashboard" className="w-full object-cover object-top" />
         </div>
       </div>
     </section>
