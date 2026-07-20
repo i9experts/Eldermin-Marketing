@@ -32,7 +32,10 @@ export const moduleGroups: ModuleGroup[] = [
   {
     slug: 'people', name: 'People', color: '#154E86',
     blurb: 'Everything about running a staff — records, payroll, leave, and the day-to-day tools teachers actually use in the classroom.',
-    screenshots: [],
+    screenshots: [
+      { src: '/screenshots/people/hr-dashboard.png', caption: 'HR Dashboard — headcount, attendance, payroll, and leave in one view, per campus' },
+      { src: '/screenshots/people/teaching-management.png', caption: 'Teaching Management dashboard — lesson plans, assignments, and classroom behaviour notes' },
+    ],
     modules: [
       { name: 'Human Resource', desc: 'Staff records, leave, payroll' },
       { name: 'Teacher Module', desc: 'Lesson plans, gradebook, attendance' },
