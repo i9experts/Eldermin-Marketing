@@ -53,11 +53,11 @@ export default function Navbar() {
             <div className="pl-3 pb-2 space-y-4">
               {moduleGroups.map(g => (
                 <div key={g.slug}>
-                  <Link to={`/solutions#${g.slug}`} className="flex items-center gap-2 text-xs font-display font-semibold uppercase tracking-wide text-navy-deep mb-1.5">
+                  <Link to={`/solutions/${g.slug}`} className="flex items-center gap-2 text-xs font-display font-semibold uppercase tracking-wide text-navy-deep mb-1.5">
                     <span className="w-1.5 h-1.5 rounded-full" style={{ background: g.color }} /> {g.name}
                   </Link>
                   {g.modules.map(m => (
-                    <Link key={m.name} to={`/solutions#${g.slug}`} className="block text-sm text-slate py-1">{m.name}</Link>
+                    <Link key={m.name} to={`/solutions/${g.slug}`} className="block text-sm text-slate py-1">{m.name}</Link>
                   ))}
                 </div>
               ))}

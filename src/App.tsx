@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import Solutions from './pages/Solutions'
+import SolutionDetail from './pages/SolutionDetail'
 import Resources from './pages/Resources'
 import About from './pages/About'
 import Legal from './pages/Legal'
@@ -19,6 +20,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/solutions" element={<Solutions />} />
+            <Route path="/solutions/:slug" element={<SolutionDetail />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/about" element={<About />} />
             <Route path="/legal" element={<Legal />} />
