@@ -9,12 +9,11 @@ export default function Hero() {
           <span className="inline-flex items-center gap-2 border border-white/15 text-blue-100/80 text-xs font-mono px-3 py-1.5 rounded-md mb-7 tracking-wide">
             Live in 8 schools across Pakistan
           </span>
-          <h1 className="text-4xl md:text-5xl xl:text-[3.3rem] font-display font-bold text-white leading-[1.1] mb-6 tracking-tight">
-            Seventeen school systems.<br />
-            <span className="text-amber">One operating system.</span>
+          <h1 className="text-4xl md:text-5xl xl:text-[3.1rem] font-display font-bold text-white leading-[1.15] mb-6 tracking-tight">
+            Stop managing your school with multiple apps and endless spreadsheets.
           </h1>
           <p className="text-navy-pale/80 text-lg mb-9 leading-relaxed max-w-lg">
-            Eldermin runs admissions, academics, finance, HR, and Tarbiyah for Islamic schools from a single platform — so nothing lives in a separate spreadsheet, register, or app ever again.
+            Eldermin centralises admissions, academics, finance, HR, transport, and Tarbiyah into one powerful platform — giving your team complete visibility, automation, and control.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/signup" className="flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-navy-deep font-semibold px-7 py-3.5 rounded-lg text-base transition-colors">
