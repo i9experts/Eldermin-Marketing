@@ -15,7 +15,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nSchool/Organization: ${form.school}\nInquiry type: ${form.type}\n\n${form.message}`
     )
-    window.location.href = `mailto:hello@eldermin.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:sales@eldermin.com?subject=${subject}&body=${body}`
   }
 
   return (
@@ -32,10 +32,10 @@ export default function Contact() {
         <div>
           <h2 className="text-xl font-display font-semibold text-navy-deep mb-6">Reach us directly</h2>
           <div className="space-y-5">
-            <a href="mailto:hello@eldermin.com" className="flex items-start gap-3 group">
+            <a href="mailto:sales@eldermin.com" className="flex items-start gap-3 group">
               <Mail size={18} className="text-navy mt-0.5 shrink-0" />
               <div>
-                <div className="font-medium text-navy-deep group-hover:text-amber-dark transition-colors">hello@eldermin.com</div>
+                <div className="font-medium text-navy-deep group-hover:text-amber-dark transition-colors">sales@eldermin.com</div>
                 <div className="text-slate-light text-sm">We reply within 1-2 business days</div>
               </div>
             </a>
@@ -82,7 +82,7 @@ export default function Contact() {
           <button type="submit" className="w-full flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-navy-deep font-display font-semibold py-3 rounded-lg transition-colors">
             Send message <Send size={16} />
           </button>
-          <p className="text-xs text-slate-light text-center">This opens your email app with your message ready to send to hello@eldermin.com.</p>
+          <p className="text-xs text-slate-light text-center">This opens your email app with your message ready to send to sales@eldermin.com.</p>
         </form>
       </section>
     </div>

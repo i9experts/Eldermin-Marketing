@@ -37,7 +37,7 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold text-amber mb-4 text-sm">Contact</h4>
             <ul className="space-y-3 text-sm text-navy-pale/70">
-              <li className="flex items-center gap-2"><Mail size={14} /><a href="mailto:hello@eldermin.com" className="hover:text-amber">hello@eldermin.com</a></li>
+              <li className="flex items-center gap-2"><Mail size={14} /><a href="mailto:sales@eldermin.com" className="hover:text-amber">sales@eldermin.com</a></li>
               <li className="flex items-center gap-2"><MapPin size={14} />Pakistan</li>
             </ul>
           </div>
