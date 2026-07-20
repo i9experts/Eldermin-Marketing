@@ -1,9 +1,4 @@
-const modules = [
-  'Organization', 'Compliance & Governance', 'Documents & Workflow', 'Human Resource', 'Teacher Module',
-  'Financial Module', 'Procurement & Purchase', 'Campus Operations', 'Admission Life Cycle',
-  'Curriculum Intelligence', 'Syllabus Coverage', 'Timetable Intelligence', 'Library Management',
-  'Student Profile', 'Assessment', 'Behaviour & Tarbiyah', 'Data Intelligence',
-]
+import { allModuleNames as modules } from '../data/modules'
 
 export default function Marquee() {
   return (

@@ -1,10 +1,5 @@
 import { useWizard } from '../../context/WizardContext'
-const allModules = [
-  'Organization', 'Compliance & Governance', 'Documents & Workflow', 'Human Resource', 'Teacher Module',
-  'Financial Module', 'Procurement & Purchase', 'Campus Operations', 'Admission Life Cycle',
-  'Curriculum Intelligence', 'Syllabus Coverage', 'Timetable Intelligence', 'Library Management',
-  'Student Profile', 'Assessment', 'Behaviour & Tarbiyah', 'Data Intelligence',
-]
+import { allModuleNames as allModules } from '../../data/modules'
 export default function WizardStep4() {
   const { data, updateData, nextStep, prevStep } = useWizard()
   const selected = data.step4.modules
