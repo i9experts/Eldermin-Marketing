@@ -7,10 +7,11 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 grid lg:grid-cols-[1.05fr,1fr] gap-14 items-center">
         <div>
           <span className="inline-flex items-center gap-2 border border-white/15 text-blue-100/80 text-xs font-mono px-3 py-1.5 rounded-md mb-7 tracking-wide">
-            Live in 8 schools across Pakistan
+            Schools across Pakistan are adopting Eldermin
           </span>
-          <h1 className="text-4xl md:text-5xl xl:text-[3.1rem] font-display font-bold text-white leading-[1.15] mb-6 tracking-tight">
-            Stop managing your school with multiple apps and endless spreadsheets.
+          <h1 className="text-4xl md:text-5xl xl:text-[3.1rem] font-display font-bold leading-[1.15] mb-6 tracking-tight">
+            <span className="text-white">Stop managing your school </span>
+            <span className="text-amber">with multiple apps and endless spreadsheets.</span>
           </h1>
           <p className="text-navy-pale/80 text-lg mb-9 leading-relaxed max-w-lg">
             Eldermin centralises admissions, academics, finance, HR, transport, and Tarbiyah into one powerful platform — giving your team complete visibility, automation, and control.
