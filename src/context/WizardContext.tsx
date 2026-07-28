@@ -46,15 +46,7 @@ export function WizardProvider({ children }: { children: ReactNode }) {
     setData(prev => ({ ...prev, [stepKey]: { ...prev[stepKey], ...values } }))
   }
 
-  const nextStep = async () => {
-    const stepKey = `step${step}` as keyof WizardData
-    try {
-      await fetch(`/api/v1/onboarding/step${step}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data[stepKey]),
-      }).catch(() => {}) // ignore network errors in demo
-    } catch {}
+  const nextStep = () => {
     if (step < 8) setStep(s => s + 1)
   }
 
@@ -64,16 +56,21 @@ export function WizardProvider({ children }: { children: ReactNode }) {
 
   const submitWizard = async () => {
     setIsSubmitting(true)
-    try {
-      await fetch('/api/v1/onboarding/complete', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      }).catch(() => {})
-    } finally {
-      setIsSubmitting(false)
-      navigate('/dashboard')
-    }
+    const d = data
+    const subject = encodeURIComponent(`New onboarding request: ${d.step1.schoolName || 'Unnamed school'}`)
+    const body = encodeURIComponent(
+      `SCHOOL\nName: ${d.step1.schoolName}\nType: ${d.step1.schoolType}\nCountry: ${d.step1.country}\nCity: ${d.step1.state}\n\n` +
+      `ADMINISTRATOR\nName: ${d.step2.adminName}\nEmail: ${d.step2.adminEmail}\nPhone: ${d.step2.adminPhone}\nRole: ${d.step2.role}\n\n` +
+      `SCHOOL SIZE\nStudents: ${d.step3.studentCount}\nStaff: ${d.step3.staffCount}\nClasses: ${d.step3.classCount}\nGrade range: ${d.step3.gradeRange}\n\n` +
+      `MODULES SELECTED\n${d.step4.modules.join(', ') || 'None selected'}\n\n` +
+      `PLAN\n${d.step5.plan}\n\n` +
+      `INTEGRATIONS\n${d.step6.integrations.join(', ') || 'None selected'}\n\n` +
+      `TRAINING\nDate: ${d.step7.preferredDate}\nTime: ${d.step7.preferredTime}\nMode: ${d.step7.trainingMode}\n\n` +
+      `Signed: ${d.step8.signature}`
+    )
+    window.location.href = `mailto:sales@eldermin.com?subject=${subject}&body=${body}`
+    setIsSubmitting(false)
+    navigate('/thank-you')
   }
 
   return (

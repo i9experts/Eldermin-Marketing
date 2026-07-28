@@ -11,6 +11,8 @@ import Partners from './pages/Partners'
 import Legal from './pages/Legal'
 import Signup from './pages/Signup'
 import Wizard from './pages/Wizard'
+import ThankYou from './pages/ThankYou'
+import NotFound from './pages/NotFound'
 import { WizardProvider } from './context/WizardContext'
 
 export default function App() {
@@ -30,6 +32,8 @@ export default function App() {
             <Route path="/legal" element={<Legal />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/wizard" element={<Wizard />} />
+            <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
