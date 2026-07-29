@@ -11,6 +11,21 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Track this in the CRM pipeline too, not just as an email.
+    fetch(`${import.meta.env.VITE_API_URL || 'https://api.eldermin.com'}/api/v1/leads`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: 'contact_form',
+        schoolName: form.school || 'Not provided',
+        adminName: form.name,
+        adminEmail: form.email,
+        inquiryType: form.type,
+        message: form.message,
+      }),
+    }).catch(() => {})
+
     const subject = encodeURIComponent(`[${form.type}] Message from ${form.name || 'website'}`)
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nSchool/Organization: ${form.school}\nInquiry type: ${form.type}\n\n${form.message}`

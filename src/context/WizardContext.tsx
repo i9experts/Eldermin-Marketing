@@ -57,6 +57,40 @@ export function WizardProvider({ children }: { children: ReactNode }) {
   const submitWizard = async () => {
     setIsSubmitting(true)
     const d = data
+
+    // Primary: create a real, trackable Lead record in the CRM.
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL || 'https://api.eldermin.com'}/api/v1/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'onboarding_wizard',
+          schoolName: d.step1.schoolName,
+          schoolType: d.step1.schoolType,
+          country: d.step1.country,
+          city: d.step1.state,
+          adminName: d.step2.adminName,
+          adminEmail: d.step2.adminEmail,
+          adminPhone: d.step2.adminPhone,
+          adminRole: d.step2.role,
+          studentCount: d.step3.studentCount,
+          staffCount: d.step3.staffCount,
+          classCount: d.step3.classCount,
+          gradeRange: d.step3.gradeRange,
+          modulesRequested: d.step4.modules,
+          planRequested: d.step5.plan,
+          integrationsRequested: d.step6.integrations,
+          preferredTrainingDate: d.step7.preferredDate,
+          preferredTrainingTime: d.step7.preferredTime,
+          trainingMode: d.step7.trainingMode,
+        }),
+      })
+    } catch {
+      // Non-fatal — the mailto below still gets the request to a human either way.
+    }
+
+    // Supplementary: immediate email notification (also acts as a fallback
+    // if the API call above fails for any reason).
     const subject = encodeURIComponent(`New onboarding request: ${d.step1.schoolName || 'Unnamed school'}`)
     const body = encodeURIComponent(
       `SCHOOL\nName: ${d.step1.schoolName}\nType: ${d.step1.schoolType}\nCountry: ${d.step1.country}\nCity: ${d.step1.state}\n\n` +
