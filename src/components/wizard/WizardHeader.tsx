@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { X, Building2, UserCog, Users, Grid3x3, Wallet, Plug, GraduationCap, Rocket, Check } from 'lucide-react'
+import { LogoMark } from '../Logo'
 
 const steps = [
   { label: 'Institution', icon: Building2 },
@@ -17,8 +18,8 @@ export default function WizardHeader({ step }: { step: number }) {
     <div className="bg-navy-deep rounded-t-2xl px-5 sm:px-8 pt-6 pb-5">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-amber flex items-center justify-center font-display font-extrabold text-navy-deep text-lg shrink-0">
-            E
+          <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center shrink-0 p-1.5">
+            <LogoMark className="w-full h-full" />
           </div>
           <div>
             <div className="font-display font-bold text-white text-sm leading-tight">Eldermin ERP</div>
