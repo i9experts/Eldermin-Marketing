@@ -50,7 +50,7 @@ export default function Pricing() {
               <ul className="space-y-2.5 mb-8">
                 {plan.features.map(f => <li key={f} className="flex items-center gap-2 text-sm text-slate"><Check size={15} className="text-emerald shrink-0" /> {f}</li>)}
               </ul>
-              <Link to="/signup" className={`block text-center font-display font-semibold py-3 rounded-lg transition-colors ${plan.cta}`}>
+              <Link to={plan.name === 'Enterprise' ? '/contact' : '/wizard'} className={`block text-center font-display font-semibold py-3 rounded-lg transition-colors ${plan.cta}`}>
                 {plan.name === 'Enterprise' ? 'Talk to sales' : 'Get started'}
               </Link>
             </div>

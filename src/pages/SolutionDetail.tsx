@@ -38,7 +38,7 @@ export default function SolutionDetail() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-navy/10 pt-8">
-          <Link to="/signup" className="inline-block bg-navy hover:bg-navy-mid text-white font-semibold px-7 py-3 rounded-lg transition-colors">
+          <Link to="/wizard" className="inline-block bg-navy hover:bg-navy-mid text-white font-semibold px-7 py-3 rounded-lg transition-colors">
             Get started with {group.name}
           </Link>
           <Link to={`/solutions/${next.slug}`} className="inline-flex items-center gap-1.5 text-navy font-medium hover:text-amber-dark transition-colors">

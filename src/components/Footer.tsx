@@ -26,7 +26,7 @@ export default function Footer() {
               <li><Link to="/solutions#academics" className="hover:text-amber transition-colors">Academics</Link></li>
               <li><Link to="/solutions#finance" className="hover:text-amber transition-colors">Finance</Link></li>
               <li><Link to="/solutions#hr" className="hover:text-amber transition-colors">HR & Payroll</Link></li>
-              <li><Link to="/signup" className="hover:text-amber transition-colors">Pricing</Link></li>
+              <li><Link to="/wizard" className="hover:text-amber transition-colors">Pricing</Link></li>
             </ul>
           </div>
           <div>

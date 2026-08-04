@@ -10,10 +10,10 @@ export default function ThankYou() {
           <CheckCircle2 size={52} className="text-emerald" strokeWidth={1.5} />
         </div>
         <h1 className="text-3xl md:text-4xl font-display font-bold text-navy-deep mb-4 tracking-tight">
-          Thanks — we've got your details
+          Thanks — your school's details are with us
         </h1>
         <p className="text-slate text-lg leading-relaxed mb-8">
-          Your email app should have opened with your onboarding request ready to send to our sales team. Once it lands, we'll review it and reach out within 24 hours to set up your account and schedule training.
+          Your email app should have opened with your onboarding request ready to send to our team. We review every submission before activating an account — expect to hear from us within 24 hours with a decision or a request for more information.
         </p>
         <p className="text-slate-light text-sm mb-10">
           If your email app didn't open, you can reach us directly at{' '}

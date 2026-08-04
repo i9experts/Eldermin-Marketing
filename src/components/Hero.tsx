@@ -25,8 +25,8 @@ export default function Hero() {
             Run admissions, academics, finance, people, communication, and student development from one connected platform — built for schools that educate beyond academics, with specialised Tarbiyah, Hifz, and Nazrah tools for Islamic schools that want them.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/signup" className="flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-navy-deep font-semibold px-7 py-3.5 rounded-lg text-base transition-colors shadow-lg shadow-amber/10">
-              Start Free Trial <ArrowRight size={17} />
+            <Link to="/wizard" className="flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-navy-deep font-semibold px-7 py-3.5 rounded-lg text-base transition-colors shadow-lg shadow-amber/10">
+              Apply for Eldermin <ArrowRight size={17} />
             </Link>
             <a href="#modules" className="flex items-center justify-center gap-2 text-white/90 hover:text-white font-medium px-7 py-3.5 rounded-lg text-base transition-colors border border-white/20 hover:border-white/40">
               See the platform

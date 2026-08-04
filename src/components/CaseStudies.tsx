@@ -25,7 +25,7 @@ export default function CaseStudies() {
             </div>
           ))}
         </div>
-        <Link to="/signup" className="inline-flex items-center gap-2 text-navy-deep font-semibold hover:text-amber-dark transition-colors">
+        <Link to="/wizard" className="inline-flex items-center gap-2 text-navy-deep font-semibold hover:text-amber-dark transition-colors">
           Start your setup <ArrowRight size={16} />
         </Link>
       </div>

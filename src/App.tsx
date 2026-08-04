@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -9,7 +9,6 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Partners from './pages/Partners'
 import Legal from './pages/Legal'
-import Signup from './pages/Signup'
 import Wizard from './pages/Wizard'
 import ThankYou from './pages/ThankYou'
 import NotFound from './pages/NotFound'
@@ -30,7 +29,11 @@ export default function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/legal" element={<Legal />} />
-            <Route path="/signup" element={<Signup />} />
+            {/* There is exactly one onboarding path now — a guided wizard whose
+                submission lands as a school lead for our team to verify and then
+                activate, reject, or suspend. /signup is kept as a redirect for any
+                old bookmarks/links pointing at the retired standalone form. */}
+            <Route path="/signup" element={<Navigate to="/wizard" replace />} />
             <Route path="/wizard" element={<Wizard />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="*" element={<NotFound />} />

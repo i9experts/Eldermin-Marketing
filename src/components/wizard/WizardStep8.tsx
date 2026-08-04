@@ -6,8 +6,8 @@ export default function WizardStep8() {
   return (
     <div>
       <span className="font-mono text-xs text-amber-dark uppercase tracking-widest">Step 8</span>
-      <h2 className="text-xl font-display font-bold text-navy-deep mb-1 mt-1">Review & confirm</h2>
-      <p className="text-gray-500 text-sm mb-6">Almost there — please review and agree to our terms.</p>
+      <h2 className="text-xl font-display font-bold text-navy-deep mb-1 mt-1">Review & submit</h2>
+      <p className="text-gray-500 text-sm mb-6">Almost there — please review and agree to our terms before submitting your school's details.</p>
       <div className="space-y-4">
         <div className="flex items-start gap-3 p-3 bg-mist rounded-xl">
           <input type="checkbox" id="terms" checked={d.termsAccepted} onChange={e => updateData('step8', { termsAccepted: e.target.checked })} className="mt-0.5" />
@@ -22,13 +22,13 @@ export default function WizardStep8() {
           <input type="text" value={d.signature} onChange={e => updateData('step8', { signature: e.target.value })} placeholder="e.g. Ahmed Hassan" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-navy/30 font-serif italic" />
         </div>
         <div className="bg-amber/10 border border-amber/20 rounded-xl p-4 text-sm text-gray-700">
-          Almost set — our onboarding team will reach out within 24 hours to set up your account and schedule training.
+          This doesn't launch your account instantly. Our team reviews every school's details and reaches out within 24 hours to activate your account and schedule training.
         </div>
       </div>
       <div className="flex gap-3 mt-6">
         <button onClick={prevStep} className="flex-1 border border-gray-200 text-gray-600 font-semibold py-3 rounded-xl hover:bg-gray-50 transition-colors">← Back</button>
         <button onClick={submitWizard} disabled={!canSubmit || isSubmitting} className="flex-1 bg-amber hover:bg-amber-dark text-navy-deep font-display font-semibold py-3 rounded-xl transition-colors disabled:opacity-40">
-          {isSubmitting ? 'Launching...' : 'Launch Dashboard'}
+          {isSubmitting ? 'Submitting...' : 'Submit for Review'}
         </button>
       </div>
     </div>

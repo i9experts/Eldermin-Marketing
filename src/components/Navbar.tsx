@@ -36,7 +36,7 @@ export default function Navbar() {
             <Link to="/contact" className="text-navy font-medium hover:text-amber transition-colors">Contact</Link>
             <Link to="/about" className="text-navy font-medium hover:text-amber transition-colors">About</Link>
             <a href="https://app.eldermin.com/login" className="text-navy font-medium hover:text-amber transition-colors">Sign In</a>
-            <Link to="/signup" className="bg-amber hover:bg-amber-dark text-white font-semibold px-5 py-2 rounded-lg transition-colors shadow-sm">
+            <Link to="/wizard" className="bg-amber hover:bg-amber-dark text-white font-semibold px-5 py-2 rounded-lg transition-colors shadow-sm">
               Get Started
             </Link>
           </div>
@@ -68,7 +68,7 @@ export default function Navbar() {
           <Link to="/contact" className="block text-navy font-semibold py-2">Contact</Link>
           <Link to="/about" className="block text-navy font-semibold py-2">About</Link>
           <a href="https://app.eldermin.com/login" className="block text-navy font-semibold py-2">Sign In</a>
-          <Link to="/signup" className="block bg-amber text-white font-semibold px-4 py-2.5 rounded-lg text-center mt-3">Get Started</Link>
+          <Link to="/wizard" className="block bg-amber text-white font-semibold px-4 py-2.5 rounded-lg text-center mt-3">Get Started</Link>
         </div>
       )}
     </nav>

@@ -11,7 +11,7 @@ export default function Testimonials() {
         <p className="text-slate text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
           From admissions to Tarbiyah, Eldermin handles real day-to-day operations for real schools, teachers, and students — and we're adding new schools every month. Every school that comes on board helps shape what Eldermin becomes next.
         </p>
-        <Link to="/signup" className="inline-block bg-navy hover:bg-navy-mid text-white font-semibold px-7 py-3 rounded-lg transition-colors">
+        <Link to="/wizard" className="inline-block bg-navy hover:bg-navy-mid text-white font-semibold px-7 py-3 rounded-lg transition-colors">
           Join the schools already onboard
         </Link>
       </div>
