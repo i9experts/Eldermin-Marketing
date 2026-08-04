@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Mail, MapPin, Send } from 'lucide-react'
+import { Mail, MapPin, Phone, Send } from 'lucide-react'
 
 const inquiryTypes = ['General question', 'Sales / pricing', 'Partnership', 'Support (existing school)']
+
+const offices = [
+  { city: 'Karachi — Head Office', lines: ['D-8/5, Shahrah-e-Jahangir,', 'Gulberg Town, Karachi, Sindh, Pakistan'] },
+  { city: 'Faisalabad', lines: ['40-W-101, Susan Road,', 'Madina Town, Faisalabad, Punjab, Pakistan'] },
+  { city: 'United States', lines: ['1449 S Michigan Ave, STE 13087,', 'Chicago, IL 60605, USA'] },
+]
 
 export default function Contact() {
   const [params] = useSearchParams()
@@ -30,7 +36,8 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nSchool/Organization: ${form.school}\nInquiry type: ${form.type}\n\n${form.message}`
     )
-    window.location.href = `mailto:sales@eldermin.com?subject=${subject}&body=${body}`
+    const destination = form.type === 'Support (existing school)' ? 'support@eldermin.com' : 'sales@eldermin.com'
+    window.location.href = `mailto:${destination}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -47,20 +54,32 @@ export default function Contact() {
         <div>
           <h2 className="text-xl font-display font-semibold text-navy-deep mb-6">Reach us directly</h2>
           <div className="space-y-5">
-            <a href="mailto:sales@eldermin.com" className="flex items-start gap-3 group">
+            <a href="mailto:support@eldermin.com" className="flex items-start gap-3 group">
               <Mail size={18} className="text-navy mt-0.5 shrink-0" />
               <div>
-                <div className="font-medium text-navy-deep group-hover:text-amber-dark transition-colors">sales@eldermin.com</div>
+                <div className="font-medium text-navy-deep group-hover:text-amber-dark transition-colors">support@eldermin.com</div>
                 <div className="text-slate-light text-sm">We reply within 1-2 business days</div>
               </div>
             </a>
-            <div className="flex items-start gap-3">
-              <MapPin size={18} className="text-navy mt-0.5 shrink-0" />
+            <a href="tel:+923011167555" className="flex items-start gap-3 group">
+              <Phone size={18} className="text-navy mt-0.5 shrink-0" />
               <div>
-                <div className="font-medium text-navy-deep">Pakistan</div>
-                <div className="text-slate-light text-sm">Serving schools nationwide</div>
+                <div className="font-medium text-navy-deep group-hover:text-amber-dark transition-colors">+92 301 1167555</div>
+                <div className="text-slate-light text-sm">Head office, Karachi</div>
               </div>
-            </div>
+            </a>
+          </div>
+
+          <div className="mt-10 pt-8 border-t border-navy/10 space-y-6">
+            {offices.map(o => (
+              <div key={o.city} className="flex items-start gap-3">
+                <MapPin size={18} className="text-navy mt-0.5 shrink-0" />
+                <div>
+                  <div className="font-medium text-navy-deep">{o.city}</div>
+                  {o.lines.map(l => <div key={l} className="text-slate-light text-sm">{l}</div>)}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -97,7 +116,7 @@ export default function Contact() {
           <button type="submit" className="w-full flex items-center justify-center gap-2 bg-amber hover:bg-amber-dark text-navy-deep font-display font-semibold py-3 rounded-lg transition-colors">
             Send message <Send size={16} />
           </button>
-          <p className="text-xs text-slate-light text-center">This opens your email app with your message ready to send to sales@eldermin.com.</p>
+          <p className="text-xs text-slate-light text-center">This opens your email app with your message ready to send to our team.</p>
         </form>
       </section>
     </div>

@@ -26,8 +26,8 @@ export default function Home() {
       <TechStack />
       <Pricing />
       <section className="py-20 bg-navy-deep text-white text-center">
-        <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Ready to bring this to your school?</h2>
-        <p className="text-navy-pale/75 text-lg mb-8 max-w-xl mx-auto">Live in 8 schools across Pakistan today. Yours could be next.</p>
+        <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Give your school the operating system it deserves.</h2>
+        <p className="text-navy-pale/75 text-lg mb-8 max-w-xl mx-auto">Live in 8 schools across Pakistan today, built for value-oriented schools everywhere. Yours could be next.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/signup" className="inline-block bg-amber hover:bg-amber-dark text-navy-deep font-display font-semibold px-10 py-4 rounded-lg text-lg transition-colors">
             Start Free 30-Day Trial
