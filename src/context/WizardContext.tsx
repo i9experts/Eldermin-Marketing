@@ -113,6 +113,7 @@ export function WizardProvider({ children }: { children: ReactNode }) {
           gradeRange: d.step3.gradeRange,
           modulesRequested: d.step4.modules,
           planRequested: d.step5.plan,
+          billingCycle: d.step5.billingCycle,
           integrationsRequested: d.step6.integrations,
           preferredTrainingDate: d.step7.preferredDate,
           preferredTrainingTime: d.step7.preferredTime,
@@ -131,7 +132,7 @@ export function WizardProvider({ children }: { children: ReactNode }) {
       `ADMINISTRATOR\nName: ${d.step2.adminName}\nEmail: ${d.step2.adminEmail}\nPhone: ${d.step2.adminPhone}\nRole: ${d.step2.role}\n\n` +
       `SCHOOL SIZE\nStudents: ${d.step3.studentCount}\nStaff: ${d.step3.staffCount}\nClasses: ${d.step3.classCount}\nGrade range: ${d.step3.gradeRange}\n\n` +
       `MODULES SELECTED\n${d.step4.modules.join(', ') || 'None selected'}\n\n` +
-      `PLAN\n${d.step5.plan}\n\n` +
+      `PLAN\n${d.step5.plan} (${d.step5.billingCycle})\n\n` +
       `INTEGRATIONS\n${d.step6.integrations.join(', ') || 'None selected'}\n\n` +
       `TRAINING\nDate: ${d.step7.preferredDate}\nTime: ${d.step7.preferredTime}\nMode: ${d.step7.trainingMode}\n\n` +
       `Signed: ${d.step8.signature}`
