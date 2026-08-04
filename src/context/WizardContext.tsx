@@ -1,5 +1,10 @@
-import { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+// Persisted so a refresh, an accidental tab close, or a switch to another tab and
+// back doesn't throw away everything the applicant already typed in. Cleared only
+// once the application has actually been submitted.
+const STORAGE_KEY = 'eldermin_wizard_v1'
 
 interface WizardData {
   step1: { schoolName: string; schoolType: string; country: string; state: string }
@@ -36,13 +41,42 @@ const defaultData: WizardData = {
 
 const WizardContext = createContext<WizardContextType | null>(null)
 
+interface PersistedState {
+  step: number
+  data: WizardData
+}
+
+function loadPersisted(): PersistedState | null {
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY)
+    if (!raw) return null
+    const parsed = JSON.parse(raw)
+    if (!parsed || typeof parsed.step !== 'number' || !parsed.data) return null
+    return parsed
+  } catch {
+    // Corrupt or inaccessible storage (private browsing, quota, etc.) — fall back
+    // to a fresh application rather than crashing the wizard.
+    return null
+  }
+}
+
 export function WizardProvider({ children }: { children: ReactNode }) {
-  const [step, setStep] = useState(1)
-  const [data, setData] = useState<WizardData>(defaultData)
+  const persisted = loadPersisted()
+  const [step, setStep] = useState(persisted?.step ?? 1)
+  const [data, setData] = useState<WizardData>(persisted?.data ?? defaultData)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const navigate = useNavigate()
 
-  const updateData = (stepKey: keyof WizardData, values: any) => {
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ step, data }))
+    } catch {
+      // Non-fatal — worst case the applicant re-enters data after a refresh,
+      // same as before this was added.
+    }
+  }, [step, data])
+
+  const updateData = <K extends keyof WizardData>(stepKey: K, values: Partial<WizardData[K]>) => {
     setData(prev => ({ ...prev, [stepKey]: { ...prev[stepKey], ...values } }))
   }
 
@@ -103,6 +137,15 @@ export function WizardProvider({ children }: { children: ReactNode }) {
       `Signed: ${d.step8.signature}`
     )
     window.location.href = `mailto:sales@eldermin.com?subject=${subject}&body=${body}`
+
+    // Application is in — clear the draft so a future visit starts fresh
+    // instead of resurrecting a submitted application.
+    try {
+      window.localStorage.removeItem(STORAGE_KEY)
+    } catch {
+      // Non-fatal.
+    }
+
     setIsSubmitting(false)
     navigate('/thank-you')
   }
