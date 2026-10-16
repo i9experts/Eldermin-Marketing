@@ -118,6 +118,9 @@ export function WizardProvider({ children }: { children: ReactNode }) {
           preferredTrainingDate: d.step7.preferredDate,
           preferredTrainingTime: d.step7.preferredTime,
           trainingMode: d.step7.trainingMode,
+          termsAccepted: d.step8.termsAccepted,
+          dataPolicyAccepted: d.step8.dataPolicy,
+          signature: d.step8.signature,
         }),
       })
     } catch {
