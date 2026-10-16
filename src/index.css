@@ -3,10 +3,23 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply font-body text-slate antialiased; }
-  h1, h2, h3, h4 { @apply font-display tracking-tight; }
-  :focus-visible { outline: 2px solid #EF9F27; outline-offset: 2px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  body { @apply font-body text-ink antialiased; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; letter-spacing: -0.03em; }
+  :focus-visible { outline: 2px solid #efa728; outline-offset: 2px; }
+}
+
+dialog#detail-dialog {
+  max-width: min(640px, calc(100vw - 2rem));
+  width: 100%;
+  border: none;
+  padding: 0;
+}
+dialog#detail-dialog::backdrop { background: rgba(11,32,56,0.55); }
+
+@keyframes appear {
+  from { opacity: 0.4; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }

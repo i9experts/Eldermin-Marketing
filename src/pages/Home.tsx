@@ -1,42 +1,55 @@
+import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import StatsStrip from '../components/StatsStrip'
-import Marquee from '../components/Marquee'
-import ProductTabs from '../components/ProductTabs'
-import TarbiyahSection from '../components/TarbiyahSection'
 import ROISection from '../components/ROISection'
+import RoleExplorerTabs from '../components/RoleExplorerTabs'
+import DarkValuesSection from '../components/DarkValuesSection'
 import ModulesGrid from '../components/ModulesGrid'
-import CaseStudies from '../components/CaseStudies'
-import Testimonials from '../components/Testimonials'
-import TechStack from '../components/TechStack'
-import Pricing from '../components/Pricing'
-import { Link } from 'react-router-dom'
+import TeacherPhoneSection from '../components/TeacherPhoneSection'
+import OnboardingSteps from '../components/OnboardingSteps'
+import PricingCards from '../components/PricingCards'
+import FaqAccordion from '../components/FaqAccordion'
+import CtaBand from '../components/CtaBand'
 
 export default function Home() {
   return (
     <>
       <Hero />
       <StatsStrip />
-      <Marquee />
-      <ProductTabs />
-      <TarbiyahSection />
       <ROISection />
-      <ModulesGrid />
-      <CaseStudies />
-      <Testimonials />
-      <TechStack />
-      <Pricing />
-      <section className="py-20 bg-navy-deep text-white text-center">
-        <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Give your school the operating system it deserves.</h2>
-        <p className="text-navy-pale/75 text-lg mb-8 max-w-xl mx-auto">Live in 8 schools across Pakistan today, built for value-oriented schools everywhere. Yours could be next.</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link to="/wizard" className="inline-block bg-amber hover:bg-amber-dark text-navy-deep font-display font-semibold px-10 py-4 rounded-lg text-lg transition-colors">
-            Apply for Eldermin
-          </Link>
-          <a href="https://app.eldermin.com/login" className="inline-block bg-white/10 hover:bg-white/20 text-white font-semibold px-10 py-4 rounded-lg text-lg transition-colors border border-white/20">
-            Sign In →
-          </a>
+
+      <section id="explore" className="py-24 bg-white scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-12">
+            <span className="font-mono text-xs text-gold-dark uppercase tracking-widest">Find your perspective</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-navy-deep mt-3 mb-3 tracking-tight">One platform.<br />A better day for every role.</h2>
+            <p className="text-muted text-lg">Explore the workflows that matter to you.</p>
+          </div>
+          <RoleExplorerTabs />
         </div>
       </section>
+
+      <DarkValuesSection />
+      <ModulesGrid />
+      <TeacherPhoneSection />
+      <OnboardingSteps />
+
+      <section className="py-24 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-12">
+            <span className="font-mono text-xs text-gold-dark uppercase tracking-widest">Room to start. Space to grow.</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-navy-deep mt-3 mb-3 tracking-tight">A plan for your school's next chapter.</h2>
+            <p className="text-muted text-lg">Clear starting points for individual schools and multi-campus institutions.</p>
+          </div>
+          <PricingCards showToggle={false} />
+          <Link to="/pricing" className="inline-block mt-8 text-navy font-semibold hover:text-gold-dark transition-colors">
+            Compare plans in detail →
+          </Link>
+        </div>
+      </section>
+
+      <FaqAccordion />
+      <CtaBand />
     </>
   )
 }

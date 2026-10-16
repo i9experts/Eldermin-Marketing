@@ -1,110 +1,35 @@
-export interface Screenshot {
-  src: string
-  caption: string
-}
 export interface ModuleItem {
-  name: string
+  title: string
+  category: string
+  icon: string
   desc: string
-}
-export interface ModuleGroup {
-  slug: string
-  name: string
-  color: string
-  blurb: string
-  modules: ModuleItem[]
-  screenshots: Screenshot[]
+  capabilities: string[]
 }
 
-export const moduleGroups: ModuleGroup[] = [
-  {
-    slug: 'foundation', name: 'Foundation', color: '#0C447C',
-    blurb: 'The structural layer every other module reads from — institution profile, campuses, academic calendar, governance, and document workflow.',
-    screenshots: [
-      { src: '/screenshots/foundation/executive-dashboard.png', caption: 'Executive Dashboard — organization and governance overview across institutions, campuses, and departments' },
-      { src: '/screenshots/foundation/documents-workflow.png', caption: 'Documents & Workflow dashboard — approvals, e-signatures, and audit trail in one view' },
-      { src: '/screenshots/foundation/apps-modules.png', caption: 'Apps & Modules — activate or deactivate any of the 17 modules per institution' },
-    ],
-    modules: [
-      { name: 'Organization', desc: 'Institution profile, campuses, academic years' },
-      { name: 'Compliance & Governance', desc: 'Policies, board, committees, audit logs' },
-      { name: 'Documents & Workflow', desc: 'Approvals, e-signatures, document management' },
-    ],
-  },
-  {
-    slug: 'people', name: 'People', color: '#154E86',
-    blurb: 'Everything about running a staff — records, payroll, leave, and the day-to-day tools teachers actually use in the classroom.',
-    screenshots: [
-      { src: '/screenshots/people/hr-dashboard.png', caption: 'HR Dashboard — headcount, attendance, payroll, and leave in one view, per campus' },
-      { src: '/screenshots/people/teaching-management.png', caption: 'Teaching Management dashboard — lesson plans, assignments, and classroom behaviour notes' },
-    ],
-    modules: [
-      { name: 'Human Resource', desc: 'Staff records, leave, payroll' },
-      { name: 'Teacher Module', desc: 'Lesson plans, gradebook, attendance' },
-    ],
-  },
-  {
-    slug: 'finance', name: 'Finance & Administration', color: '#EF9F27',
-    blurb: 'Fee collection, procurement, and campus administration, with reports formatted the way Pakistani school offices actually use them.',
-    screenshots: [
-      { src: '/screenshots/finance/finance-dashboard.png', caption: 'Finance dashboard — fee collection, receivables, payables, banking, and Islamic funds tracking' },
-      { src: '/screenshots/finance/procurement-inventory.png', caption: 'Procurement & Inventory — requisitions, purchase orders, vendors, and stock in one flow' },
-      { src: '/screenshots/finance/campus-operations.png', caption: 'Campus Operations — buildings, maintenance tickets, transport, and facility utilization' },
-    ],
-    modules: [
-      { name: 'Financial Module', desc: 'Fee collection, invoicing, reports' },
-      { name: 'Procurement & Purchase', desc: 'Purchase requests, POs, GRNs' },
-      { name: 'Campus Operations', desc: 'Buildings, rooms, visitors, utilities' },
-    ],
-  },
-  {
-    slug: 'admissions', name: 'Admissions', color: '#1E8E5A',
-    blurb: 'One connected flow from a family\'s first application through to an enrolled, class-assigned student.',
-    screenshots: [
-      { src: '/screenshots/admissions/admission-lifecycle.png', caption: 'Admission Lifecycle dashboard — leads, applications, evaluation, and enrollment funnel in one view' },
-    ],
-    modules: [
-      { name: 'Admission Life Cycle', desc: 'Applications through to enrollment' },
-    ],
-  },
-  {
-    slug: 'academics', name: 'Academics', color: '#3E7CB1',
-    blurb: 'Curriculum, syllabus tracking, timetabling, and the library — all reading from the same academic structure.',
-    screenshots: [
-      { src: '/screenshots/academics/curriculum-subjects.png', caption: 'Curriculum Intelligence — subject catalogue with grade coverage and weekly periods' },
-      { src: '/screenshots/academics/curriculum-overview.png', caption: 'Academics overview — subjects, curricula, syllabi, and library in one dashboard' },
-      { src: '/screenshots/academics/timetable-planner.png', caption: 'Timetable Intelligence — conflict detection across teachers, rooms, and periods' },
-    ],
-    modules: [
-      { name: 'Curriculum Intelligence', desc: 'SLO mapping, progression grids' },
-      { name: 'Syllabus Coverage', desc: 'Lesson-by-lesson coverage tracking' },
-      { name: 'Timetable Intelligence', desc: 'Conflict-free scheduling' },
-      { name: 'Library Management', desc: 'Catalogue, loans, and returns' },
-    ],
-  },
-  {
-    slug: 'students', name: 'Students', color: '#C97E12',
-    blurb: 'A single student profile carrying academics, behaviour, and Tarbiyah — not five different records in five different places.',
-    screenshots: [
-      { src: '/screenshots/students/student-360.png', caption: 'Student 360 — one profile spanning personal info, guardians, attendance, fees, and behaviour' },
-      { src: '/screenshots/students/assessment-module.png', caption: 'Assessment Module — question bank, mark entry, results, and grade analytics' },
-      { src: '/screenshots/students/behaviour-tarbiyah.png', caption: 'Behaviour & Tarbiyah — conduct records, interventions, and Tarbiyah assessment tracking' },
-    ],
-    modules: [
-      { name: 'Student Profile', desc: 'One record per student, not five' },
-      { name: 'Assessment', desc: 'Grading, report cards, results' },
-      { name: 'Behaviour & Tarbiyah', desc: 'Conduct records, Salah & Hifz tracking' },
-    ],
-  },
-  {
-    slug: 'intelligence', name: 'Intelligence', color: '#071A2C',
-    blurb: 'Cross-module analytics and AI-generated insights, drawing on the data every other module already collects.',
-    screenshots: [
-      { src: '/screenshots/intelligence/analytics-overview.png', caption: 'Analytics & Intelligence — institution health score drawing live data from every module' },
-    ],
-    modules: [
-      { name: 'Data Intelligence', desc: 'Cross-module analytics & AI insights' },
-    ],
-  },
+export const categories = ['Foundation', 'People', 'Finance', 'Admissions', 'Academics', 'Students', 'Intelligence'] as const
+
+export const modules: ModuleItem[] = [
+  { title: 'Organisation', category: 'Foundation', icon: 'building', desc: 'Bring institution profiles, campuses and academic years into one organised structure.', capabilities: ['Institution and campus setup', 'Academic-year configuration', 'A shared organisational structure'] },
+  { title: 'Compliance & Governance', category: 'Foundation', icon: 'shield', desc: 'Keep policies, committees, approvals and accountability connected.', capabilities: ['Board and committee records', 'Policy management', 'Audit logs'] },
+  { title: 'Documents & Workflow', category: 'Foundation', icon: 'doc', desc: 'Give documents and decisions a clear path from submission to approval.', capabilities: ['Document management', 'Approval workflows', 'Electronic signatures'] },
+  { title: 'Human Resource', category: 'People', icon: 'people', desc: 'Maintain staff records and manage the people behind your school.', capabilities: ['Staff profiles', 'Leave management', 'Payroll'] },
+  { title: 'Teacher Module', category: 'People', icon: 'book', desc: 'Connect lesson planning, class attendance and the gradebook.', capabilities: ['Lesson plans', 'Attendance', 'Teacher gradebook'] },
+  { title: 'Financial Module', category: 'Finance', icon: 'wallet', desc: 'See fee collection and outstanding balances in reports your team can use.', capabilities: ['Fee invoicing and collection', 'Class and section subtotals', 'Summary and detailed reports', 'PDF report designer'] },
+  { title: 'Procurement & Purchase', category: 'Finance', icon: 'doc', desc: 'Follow purchases from a request through receipt.', capabilities: ['Purchase requests', 'Purchase orders', 'Goods received notes'] },
+  { title: 'Campus Operations', category: 'Finance', icon: 'building', desc: 'Organise the spaces and everyday operations that support learning.', capabilities: ['Buildings and rooms', 'Visitor records', 'Utilities'] },
+  { title: 'Admission Life Cycle', category: 'Admissions', icon: 'people', desc: 'Keep each application connected as a prospective student becomes a learner.', capabilities: ['Application records', 'Admission workflow', 'Enrolment'] },
+  { title: 'Curriculum Intelligence', category: 'Academics', icon: 'book', desc: 'Connect curriculum expectations to a structured learning journey.', capabilities: ['Student learning outcome mapping', 'Progression grids', 'Curriculum planning'] },
+  { title: 'Syllabus Coverage', category: 'Academics', icon: 'check', desc: 'Understand what has been taught and where attention is needed.', capabilities: ['Lesson-by-lesson tracking', 'Coverage visibility', 'Academic follow-up'] },
+  { title: 'Timetable Intelligence', category: 'Academics', icon: 'clock', desc: 'Bring the teaching week together with organised scheduling.', capabilities: ['Class timetables', 'Conflict-aware scheduling', 'Prayer-time scheduling'] },
+  { title: 'Library Management', category: 'Academics', icon: 'book', desc: 'Keep your learning resources and borrowing records in order.', capabilities: ['Book catalogue', 'Loans', 'Returns'] },
+  { title: 'Student Profile', category: 'Students', icon: 'people', desc: 'Connect admission, fees, academic progress and behaviour in one student record.', capabilities: ['Unified student records', 'Family and sibling connections', 'Student history'] },
+  { title: 'Assessment', category: 'Students', icon: 'chart', desc: 'Turn assessment records into a clearer picture of learning.', capabilities: ['Grades and results', 'Report cards', 'Marks and remarks'] },
+  { title: 'Behaviour & Tarbiyah', category: 'Students', icon: 'heart', desc: 'Support character development alongside academic progress.', capabilities: ['Behaviour records', 'Salah attendance', 'Hifz and Nazrah progress', 'Tarbiyah reporting'] },
+  { title: 'Data Intelligence', category: 'Intelligence', icon: 'spark', desc: 'Explore information across modules to support better school decisions.', capabilities: ['Cross-module analytics', 'AI-assisted report insights', 'Leadership visibility'] },
 ]
 
-export const allModuleNames = moduleGroups.flatMap(g => g.modules.map(m => m.name))
+/** Six-item teaser subset shown on the homepage, mirroring the design mockup's picks. */
+export const homeTeaserModules = [8, 9, 5, 3, 13, 16].map(i => modules[i])
+
+/** Used by the /wizard module-selection step, which predates this redesign and is left as-is. */
+export const allModuleNames = modules.map(m => m.title)
