@@ -1,8 +1,8 @@
 const stats = [
-  { value: '8', label: 'Schools live' },
-  { value: '200+', label: 'Teachers using Eldermin daily' },
-  { value: '~3,000', label: 'Students managed' },
-  { value: '17', label: 'Modules, one platform' },
+  { value: '17', label: 'Connected modules' },
+  { value: 'One record', label: "Each student's school journey" },
+  { value: 'Every role', label: 'Access shaped around your team' },
+  { value: 'Whole child', label: 'Academics and development' },
 ]
 
 export default function StatsStrip() {
@@ -12,8 +12,8 @@ export default function StatsStrip() {
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
           {stats.map(s => (
             <div key={s.label} className="px-4 text-center first:pl-0 last:pr-0">
-              <div className="font-mono text-3xl md:text-4xl font-semibold text-amber">{s.value}</div>
-              <div className="text-navy-pale/60 text-xs mt-1.5 leading-snug">{s.label}</div>
+              <div className="font-display text-xl md:text-2xl font-bold text-gold">{s.value}</div>
+              <div className="text-white/55 text-xs mt-1.5 leading-snug">{s.label}</div>
             </div>
           ))}
         </div>
